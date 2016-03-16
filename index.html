@@ -179,39 +179,6 @@
 
             <section>
                 <div class="col preview demo-frame">
-                    <iframe isrc="demos/tabs/index.html"></iframe>
-                </div>
-                <div class="col code">
-                    <h3>Navigation</h3>
-                    <ul style="margin-left: 70px">
-                        <li>Uses AngularUI Router</li>
-                        <li>Shows back button when possible</li>
-                        <li>Transitions follow direction of nav</li>
-                        <li>Updates the app's URL</li>
-                        <li>Multi-history stack</li>
-                    </ul>
-                    <pre><code data-trim contenteditable class="xml">
-<ion-tabs>
-
-  <ion-tab title="Home" icon="ion-ios-home">
-    <ion-nav-view name="home"></ion-nav-view>
-  </ion-tab>
-
-  <ion-tab title="About" icon="ion-ios-information">
-    <ion-nav-view name="about"></ion-nav-view>
-  </ion-tab>
-
-  <ion-tab title="Contact" icon="ion-ios-world">
-    <ion-nav-view name="contact"></ion-nav-view>
-  </ion-tab>
-
-</ion-tabs></code></pre>
-                </div>
-            </section>
-
-
-            <section>
-                <div class="col preview demo-frame">
                     <iframe isrc="demos/swipe-back/index.html"></iframe>
                 </div>
                 <div class="col code">
@@ -254,15 +221,189 @@
 
 
             <section>
+                <div class="col preview demo-frame">
+                    <iframe isrc="demos/tabs/index.html"></iframe>
+                </div>
+                <div class="col code">
+                    <h3>Navigation</h3>
+                    <ul style="margin-left: 70px">
+                        <li>Uses AngularUI Router</li>
+                        <li>Shows back button when possible</li>
+                        <li>Transitions follow direction of nav</li>
+                        <li>Updates the app's URL</li>
+                        <li>Multi-history stack</li>
+                    </ul>
+                    <pre><code data-trim contenteditable class="xml">
+<ion-tabs>
+
+  <ion-tab title="Home" icon="ion-ios-home">
+    <ion-nav-view name="home"></ion-nav-view>
+  </ion-tab>
+
+  <ion-tab title="About" icon="ion-ios-information">
+    <ion-nav-view name="about"></ion-nav-view>
+  </ion-tab>
+
+  <ion-tab title="Contact" icon="ion-ios-world">
+    <ion-nav-view name="contact"></ion-nav-view>
+  </ion-tab>
+
+</ion-tabs></code></pre>
+                </div>
+            </section>
+
+
+            <section>
+                <div class="sl-block" data-block-type="text">
+                    <div class="sl-block-content">
+                        <h1>Ionic Navigation</h1>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>index.html</h2>
+                <div class="sl-block" style="z-index: 11;" data-highlight-theme="zenburn">
+                    <pre><code class="html">&lt;body&gt;
+&lt;ion-nav-bar class="bar-dark" no-tap-scroll="true"&gt;
+    &lt;ion-nav-back-button class="icon-ge icon-sm icon-ge-chevron_left"&gt;
+    &lt;/ion-nav-back-button&gt;
+&lt;/ion-nav-bar&gt;
+
+&lt;ion-nav-view&gt;&lt;/ion-nav-view&gt;  &lt;-- This gets populated based on UI-Router's state --/&gt;
+&lt;/body&gt;</code></pre>
+            </div>
+            </section>
+            <section>
+                <h2>View Templates</h2>
+                <div class="sl-block" style="z-index: 11;" data-highlight-theme="zenburn">
+                    <pre><code class="html">&lt;ion-view view-title="..." hide-nav-bar="true|false" hide-back-button="true|false"&gt;
+
+&lt;ion-nav-title&gt;Custom HTML or even an image&lt;/ion-nav-title&gt;
+
+&lt;ion-nav-buttons side="primary|secondary|left|right"&gt;
+    &lt;button&gt;...&lt;/button&gt;
+&lt;/ion-nav-buttons&gt;
+
+&lt;ion-nav-buttons side="primary|secondary|left|right"&gt;
+    &lt;button&gt;...&lt;/button&gt;
+&lt;/ion-nav-buttons&gt;
+
+
+&lt;ion-content&gt;
+    YOUR HTML GOES HERE
+&lt;/ion-content&gt;
+&lt;/ion-view&gt;</code></pre>
+                </div>
+            </section>
+            <section>
+                <h2>Route Configuration</h2>
+                <div class="sl-block" style="z-index: 11;" data-highlight-theme="zenburn">
+                    <pre><code class="js">angular.module('your app').config(function ($stateProvider, $urlRouteProvider) {
+$stateProvider
+    .state('login', {
+     url: '/login',
+     templateUrl: 'auth/login.html',
+     controller: 'loginController as vm'
+ })
+    .state('page1', {
+     url: '/page1',
+     templateUrl: 'module1/page1.html',
+     controller: 'page1Controller as vm'
+ })
+    .state('page2', {
+     url: '/page2',
+     templateUrl: 'module2/page2.html',
+     controller: 'page2Controller as vm'
+ });</code></pre>
+                </div>
+            </section>
+
+            <section>
+                <div class="sl-block" data-block-type="text">
+                    <div class="sl-block-content" style="z-index: 10;">
+                        <h2>Angular Helpers</h2>
+                    </div>
+                </div>
+                <div class="sl-block" data-block-type="text">
+                    <div class="sl-block-content" style="z-index: 12; text-align: left;">
+                        <ul>
+                            <li>
+                                <span style="font-size:1.0em">$ionicNavBarDelegate</span>
+                                <ul>
+                                    <li>
+                                        <span style="font-size:1.0em">Programmatic control over nav bar</span>
+                                        <ul>
+                                            <li>
+                                                <span style="font-size:1.0em">Hide/show bar</span>
+                                            </li>
+                                            <li>
+                                                <span style="font-size:1.0em">Hide/show buttons</span>
+                                            </li>
+                                            <li>
+                                                <span style="font-size:1.0em">Get/set title</span>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="sl-block" data-block-type="text">
+                    <div class="sl-block-content" style="z-index: 10;">
+                        <h2>Angular Helpers</h2>
+                    </div>
+                </div>
+                <div class="sl-block" data-block-type="text">
+                    <div class="sl-block-content" style="z-index: 12; text-align: left;">
+                        <ul>
+                            <li>
+                                <span style="color:rgb(255, 255, 255)">$ionicHistory</span>
+                                <ul>
+                                    <li>
+                                        <span>Programmatic access to history</span>
+                                        <ul>
+                                            <li>
+                                                <span>View History</span>&nbsp;(
+                                                <span>urls, titles, etc.)</span>
+                                            </li>
+                                            <li>
+                                                <span>Navigate back</span>
+                                            </li>
+                                            <li>
+                                                <span>Set nextViewOptions</span>
+                                                <ul>
+                                                    <li>
+                                                        <span>disableAnimate</span>
+                                                    </li>
+                                                    <li>
+                                                        <span>disableBack</span>
+                                                    </li>
+                                                    <li>
+                                                        <span>historyRoot</span>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+
+            <section>
                 <h2>Ionicons</h2>
                 <img src="img/ionicons.png" class="logo" width="655" height="436">
                 <p>700+ MIT licensed font-icons included</p>
                 <p><a href="http://ionicons.com/" target="_blank">ionicons.com</a>
                 </p>
             </section>
-
-
-
 
 
             <section data-background="img/ng-cordova.png">
