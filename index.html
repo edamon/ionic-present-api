@@ -265,34 +265,35 @@
                 <h2>index.html</h2>
                 <div class="sl-block" style="z-index: 11;" data-highlight-theme="zenburn">
                     <pre><code class="html">&lt;body&gt;
-&lt;ion-nav-bar class="bar-dark" no-tap-scroll="true"&gt;
-    &lt;ion-nav-back-button class="icon-ge icon-sm icon-ge-chevron_left"&gt;
-    &lt;/ion-nav-back-button&gt;
-&lt;/ion-nav-bar&gt;
+    &lt;ion-nav-bar class="bar-dark" no-tap-scroll="true"&gt;
+        &lt;ion-nav-back-button class="icon-ge icon-sm icon-ge-chevron_left"&gt;
+        &lt;/ion-nav-back-button&gt;
+    &lt;/ion-nav-bar&gt;
 
-&lt;ion-nav-view&gt;&lt;/ion-nav-view&gt;  &lt;-- This gets populated based on UI-Router's state --/&gt;
+    &lt;ion-nav-view&gt;&lt;/ion-nav-view&gt;
 &lt;/body&gt;</code></pre>
             </div>
             </section>
             <section>
                 <h2>View Templates</h2>
                 <div class="sl-block" style="z-index: 11;" data-highlight-theme="zenburn">
-                    <pre><code class="html">&lt;ion-view view-title="..." hide-nav-bar="true|false" hide-back-button="true|false"&gt;
+                    <pre><code class="html">&lt;ion-view ng-controller="myController as vm" view-title="..."
+          hide-nav-bar="true|false" hide-back-button="true|false"&gt;
 
-&lt;ion-nav-title&gt;Custom HTML or even an image&lt;/ion-nav-title&gt;
+    &lt;ion-nav-title&gt;Custom HTML or even an image&lt;/ion-nav-title&gt;
 
-&lt;ion-nav-buttons side="primary|secondary|left|right"&gt;
-    &lt;button&gt;...&lt;/button&gt;
-&lt;/ion-nav-buttons&gt;
+    &lt;ion-nav-buttons side="primary|secondary|left|right"&gt;
+        &lt;button&gt;...&lt;/button&gt;
+    &lt;/ion-nav-buttons&gt;
 
-&lt;ion-nav-buttons side="primary|secondary|left|right"&gt;
-    &lt;button&gt;...&lt;/button&gt;
-&lt;/ion-nav-buttons&gt;
+    &lt;ion-nav-buttons side="primary|secondary|left|right"&gt;
+        &lt;button&gt;...&lt;/button&gt;
+    &lt;/ion-nav-buttons&gt;
 
 
-&lt;ion-content&gt;
-    YOUR HTML GOES HERE
-&lt;/ion-content&gt;
+    &lt;ion-content&gt;
+        YOUR HTML GOES HERE
+    &lt;/ion-content&gt;
 &lt;/ion-view&gt;</code></pre>
                 </div>
             </section>
@@ -300,23 +301,24 @@
                 <h2>Route Configuration</h2>
                 <div class="sl-block" style="z-index: 11;" data-highlight-theme="zenburn">
                     <pre><code class="js">angular.module('your app').config(function ($stateProvider, $urlRouteProvider) {
-$stateProvider
-    .state('login', {
-     url: '/login',
-     templateUrl: 'auth/login.html',
-     controller: 'loginController as vm'
- })
-    .state('page1', {
-     url: '/page1',
-     templateUrl: 'module1/page1.html',
-     controller: 'page1Controller as vm'
- })
-    .state('page2', {
-     url: '/page2',
-     templateUrl: 'module2/page2.html',
-     controller: 'page2Controller as vm'
- });</code></pre>
+    $stateProvider
+        .state('login', {
+         url: '/login',
+         templateUrl: 'auth/login.html'
+     })
+        .state('page1', {
+         url: '/page1',
+         templateUrl: 'module1/page1.html'
+     })
+        .state('page2', {
+         url: '/page2',
+         templateUrl: 'module2/page2.html',
+         controller: 'page2Controller as vm' // prefer to declare controller
+                                             // in template HTML markup
+     });</code></pre>
                 </div>
+
+                <a href="http://angular-ui.github.io/ui-router/site/#/api/ui.router.state.$stateProvider" target="_blank">UI Router $stateProvider documentation</a>
             </section>
 
             <section>
